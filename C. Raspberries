@@ -1,0 +1,57 @@
+
+//
+/**
+ * example123456
+ */
+import java.util.*;
+
+public class example123456 {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int t = sc.nextInt();
+    while (t-- > 0) {
+      int a1 = sc.nextInt();
+      int min = 10;
+      int a2 = sc.nextInt();
+      boolean isTrue = false;
+      boolean isTrue1=false;
+   
+      int count=0;
+   
+      for (int i = 0; i < a1; i++) {
+        int b = sc.nextInt();
+      
+         
+        if(b%2==0) count++;
+        if(b%a2==0) isTrue1=true;
+        if (b % a2 == 0) {
+          isTrue = true;
+          // System.out.println(0);
+          // continue;
+        }
+        min = Math.min(min, a2 - b % a2);
+      }
+      if(isTrue1) {
+        System.out.println(0);
+        continue;
+      
+      }
+      if(count>2 && a2==4){
+        System.out.println(0);
+        continue;
+        }
+        if(count<=2 && a2==4){
+          int a=Math.max(0,2-count);
+          int b=min;
+          System.out.println(Math.min(a,b));
+          continue;
+        }
+     
+      if (isTrue)
+        System.out.println(0);
+      else
+        System.out.println(min);
+    }
+  }
+
+}
