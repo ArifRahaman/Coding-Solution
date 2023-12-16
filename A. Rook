@@ -1,0 +1,43 @@
+import java.util.*;
+ 
+public class excepton {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            String s = sc.next();
+            // char a=s.charAt(0);
+            // char b=s.charAt(1);
+            char a = s.charAt(0);
+   
+            char b = s.charAt(1);
+            // System.out.println(Character.getNumericValue(b));
+            for (int i = 1; i <= 8; i++) {
+                if (i == Character.getNumericValue(b)) {
+                    continue;
+                } else
+                    System.out.printf("%c%d", a, i);
+              
+                System.out.println();
+ 
+            }
+            char an = 'a';
+            for (int i = 1; i <= 8; i++) {
+                if (an==a) {
+                    an++;
+                    continue;
+                }
+                System.out.printf("%c%c", an, b);
+               
+                System.out.println();
+                an++;
+ 
+                // System.out.println(a+'');
+            }
+            // System.out.println(count);
+ 
+        }
+ 
+    }
+ 
+}
