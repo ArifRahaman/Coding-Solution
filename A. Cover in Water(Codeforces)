@@ -1,0 +1,60 @@
+import java.util.Scanner;
+ 
+public class CodeforcesTestCases {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        int numTestCases = sc.nextInt();
+    
+ 
+        for (int testCase = 1; testCase <= numTestCases; testCase++) {
+            int n = sc.nextInt();
+            sc.nextLine(); // Consume the newline character after reading n
+ 
+            String s = sc.nextLine();
+ 
+            int totalDots = calculateTotalDots(s);
+            int max = calculateMaxConsecutiveDots(s);
+ 
+            if (max >= 3) {
+                System.out.println(2);
+            } else if (max <= 2) {
+                System.out.println(totalDots);
+            } else if (max == 0) {
+                System.out.println(0);
+            }
+        }
+ 
+        sc.close();
+    }
+ 
+    private static int calculateTotalDots(String s) {
+        int totalDots = 0;
+ 
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '.') {
+                totalDots++;
+            }
+        }
+ 
+        return totalDots;
+    }
+ 
+    private static int calculateMaxConsecutiveDots(String s) {
+        int maxConsecutiveDots = 0;
+        int currentConsecutiveDots = 0;
+ 
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+ 
+            if (ch == '.') {
+                currentConsecutiveDots++;
+                maxConsecutiveDots = Math.max(currentConsecutiveDots, maxConsecutiveDots);
+            } else {
+                currentConsecutiveDots = 0; // Reset count when a non-dot character is encountered
+            }
+        }
+ 
+        return maxConsecutiveDots;
+    }
+}
