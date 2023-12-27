@@ -1,0 +1,60 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef {
+    public static void main(String[] args) throws java.lang.Exception {
+        // your code goes here
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while (t-- > 0) {
+            int a = sc.nextInt();
+            String a1 = sc.next();
+            int a2 = (int) Math.ceil(a / 2) + 1;
+
+            StringBuilder answer = new StringBuilder();
+
+            if (a <= 2) {
+                for (int i = 0; i < a; i++) {
+                    if (a1.charAt(i) == 'P') {
+                        answer.append("S");
+                    } else if (a1.charAt(i) == 'S') {
+                        answer.append("R");
+                    } else if (a1.charAt(i) == 'R') {
+                        answer.append("P");
+                    }
+                }
+                System.out.println(answer);
+            } else {
+                for (int i = 0; i < a; i++) {
+                    if (a1.charAt(i) == 'P') {
+                        answer.append("S");
+                    } else if (a1.charAt(i) == 'S') {
+                        answer.append("R");
+                    } else if (a1.charAt(i) == 'R') {
+                        answer.append("P");
+                    }
+                }
+               int count=0;
+               int i=0;
+
+                while (i < a) {
+                    if (answer.charAt(i) == 'P') {
+                        answer.setCharAt(i, 'P');
+                        i++;
+                    } else if (answer.charAt(i) != 'P') {
+                        answer.setCharAt(i, 'P');
+                        i++;
+                        count++;
+                    }
+                    if (a - count == a2)
+                        break;
+                }
+
+                System.out.println(answer);
+            }
+        }
+
+    }
+}
