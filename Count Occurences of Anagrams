@@ -1,0 +1,29 @@
+class Solution {
+
+    int search(String pat, String txt) {
+        // code here
+        int a=txt.length();
+        int b=pat.length();
+        int ans=0;
+        int[]hashpat=new int[26];
+        for(int i=0;i<b;i++){
+            hashpat[pat.charAt(i)-'a']++;
+        }
+        int[]hash=new int[26];
+        int i=0;
+        int j=0;
+        while(j<a){
+             hash[txt.charAt(j)-'a']++;
+             if(j-i+1==b){
+                if(Arrays.equals(hash,hashpat)){
+                  ans++;
+                }
+                hash[txt.charAt(i)-'a']--;
+                i++;
+             }
+             j++;
+
+        }
+          return ans;
+    }
+}
